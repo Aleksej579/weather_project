@@ -17,18 +17,24 @@
       </el-form-item>
     </el-form>
 
-    <el-form-item v-if="this.listCard.length > 0">
+    <el-form-item v-if="this.$store.state.listCard.length > 0">
       <el-card
         shadow="hover"
         class="newCity"
-        v-for="index in listCard"
+        v-for="index in this.$store.state.listCard"
         :key="index"
       >
         <el-row>
-          <el-col :span="8">{{ index.name }}</el-col>
-          <el-col :span="8">{{ index.temp }}</el-col>
-          <el-col :span="8">
-            <el-button @click="remItem()"><i class="bx bx-trash"></i></el-button
+          <el-col :span="6">{{ index.name }}</el-col>
+          <el-col :span="6">{{ index.temp }}</el-col>
+          <el-col :span="6"
+            ><router-link to="/detail"
+              ><el-button
+                ><i class="bx bx-link-external"></i></el-button></router-link
+          ></el-col>
+          <el-col :span="6">
+            <el-button @click="remItem_(index.index)"
+              ><i class="bx bx-trash"></i></el-button
           ></el-col>
         </el-row>
       </el-card>
@@ -41,7 +47,6 @@ export default {
   name: "FindCity",
   data() {
     return {
-      listCard: [],
       formValue: {
         addCity: "",
       },
@@ -56,8 +61,8 @@ export default {
           )
             .then((response) => response.json())
             .then((weatherData) => {
-              var theIndex = this.listCard.length;
-              this.listCard.push({
+              var theIndex = this.$store.state.listCard.length;
+              this.$store.commit("addNew", {
                 index: theIndex,
                 local: this.formValue.addCity,
                 name: weatherData.name,
@@ -73,8 +78,8 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    remItem() {
-      this.listCard.splice(this.theIndex, 1);
+    remItem_(i) {
+      this.$store.commit("remItem", i);
     },
   },
 };

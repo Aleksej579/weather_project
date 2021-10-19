@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+        <router-link to="/detail">Detailed description</router-link>
       </el-header>
       <el-main>
         <el-row :gutter="15">
