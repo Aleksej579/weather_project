@@ -7,7 +7,7 @@ export default createStore({
   mutations: {
     addNew(state, payload) {
       state.listCard.push({
-        index: payload.index,
+        indexS: payload.index,
         local: payload.local,
         name: payload.name,
         temp: payload.temp,

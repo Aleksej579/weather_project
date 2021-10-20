@@ -5,7 +5,6 @@
         <el-input
           v-model="formValue.addCity"
           type="text"
-          autocomplete="off"
           placeholder="Enter new city"
         ></el-input>
       </el-form-item>
@@ -27,15 +26,17 @@
         <el-row>
           <el-col :span="6">{{ index.name }}</el-col>
           <el-col :span="6">{{ index.temp }}</el-col>
-          <el-col :span="6"
-            ><router-link to="/detail"
+          <el-col :span="6">
+            <router-link :to="`/detail/${index.indexS}`"
               ><el-button
-                ><i class="bx bx-link-external"></i></el-button></router-link
+                ><i class="bx bx-link-external"></i
+              ></el-button> </router-link
           ></el-col>
           <el-col :span="6">
-            <el-button @click="remItem_(index.index)"
-              ><i class="bx bx-trash"></i></el-button
-          ></el-col>
+            <el-button @click="remItem_(index.indexS)"
+              ><i class="bx bx-trash"></i
+            ></el-button>
+          </el-col>
         </el-row>
       </el-card>
     </el-form-item>
@@ -80,6 +81,9 @@ export default {
     },
     remItem_(i) {
       this.$store.commit("remItem", i);
+    },
+    forceUpdate() {
+      this.$forceUpdate();
     },
   },
 };

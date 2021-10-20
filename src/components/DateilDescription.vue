@@ -1,11 +1,9 @@
 <template>
   <el-card shadow="hover" class="newCity">
-    {{ this.$store.state.listCard }}
-    <hr />
-    <p>City: {{ this.$store.state.listCard[0].name }}</p>
-    <p>Temp: {{ this.$store.state.listCard[0].temp }}</p>
-    <p>Wind: {{ this.$store.state.listCard[0].wind }}</p>
-    <el-button @click="addNew_()">btn</el-button>
+    <!-- <pre>{{ this.$store.state.listCard }}</pre> -->
+    <p>City: {{ this.$store.state.listCard[indexI].name }}</p>
+    <p>Temp: {{ this.$store.state.listCard[indexI].temp }}</p>
+    <p>Wind: {{ this.$store.state.listCard[indexI].wind }}</p>
   </el-card>
 </template>
 
@@ -13,12 +11,9 @@
 export default {
   name: "DateilDescription",
   data() {
-    return {};
-  },
-  methods: {
-    addNew_() {
-      // this.$store.commit("addNew", { names: 100, ages: 200 });
-    },
+    return {
+      indexI: this.$route.params.index,
+    };
   },
 };
 </script>
