@@ -3,15 +3,23 @@
     <el-container>
       <el-header>
         <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
+        <router-link to="/detail">Detailed description</router-link>
       </el-header>
-      <el-main>
-        <h1>This is an about page</h1>
-      </el-main>
+      <el-main><DateilDescription /></el-main>
     </el-container>
   </div>
 </template>
 
+<script>
+import DateilDescription from "@/components/DateilDescription.vue";
+
+export default {
+  name: "DateilPage",
+  components: {
+    DateilDescription,
+  },
+};
+</script>
 
 <style scoped>
 .el-header,
