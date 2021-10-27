@@ -24,7 +24,7 @@ export default {
   computed: {},
   methods: {
     getCurentWeather() {
-      fetch("http://ipwhois.app/json/")
+      fetch("https://ipwhois.app/json/")
         .then((response) => response.json())
         .then((local) => {
           fetch(
