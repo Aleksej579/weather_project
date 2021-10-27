@@ -28,7 +28,7 @@ export default {
         .then((response) => response.json())
         .then((local) => {
           fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${local.city}&appid=bbc9d9f77eec628025ef1f81cc3f885f&units=metric `
+            `https://api.openweathermap.org/data/2.5/weather?q=${local.city}&appid=bbc9d9f77eec628025ef1f81cc3f885f&units=metric `
           )
             .then((response) => response.json())
             .then((weatherData) => {

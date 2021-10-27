@@ -58,7 +58,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${this.formValue.addCity}&appid=bbc9d9f77eec628025ef1f81cc3f885f&units=metric `
+            `https://api.openweathermap.org/data/2.5/weather?q=${this.formValue.addCity}&appid=bbc9d9f77eec628025ef1f81cc3f885f&units=metric `
           )
             .then((response) => response.json())
             .then((weatherData) => {
